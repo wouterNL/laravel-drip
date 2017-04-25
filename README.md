@@ -14,7 +14,7 @@ composer require wouterNL/laravel-drip
 php artisan vendor:publish --provider="wouterNL\Drip\DripPhpServiceProvider"
 ```
 
-3) Add your Drip API token to the config file located in app/config/drip.php. I recommend you add this key to your project .env file instead of directly adding it to your config file.
+3) Add your Drip API token to the config file located in app/config/drip.php. I recommend you add this key to your project .env file instead of directly adding it to your config file. You can find your API token at the user settings page (https://www.getdrip.com/user/edit).
 ```
 DRIP_API_TOKEN=your token here
 ```
@@ -51,3 +51,6 @@ wouterNL\Drip\DripServiceProvider::class,
 - Drip::getRequestInfo()
 - Drip::getErrorMessage()
 - Drip::getErrorCode()
+
+For more information about the REST API go to this link:
+https://www.getdrip.com/docs/rest-api
