@@ -1,7 +1,7 @@
 <?php
-namespace OCALI\Drip;
+namespace wouterNL\Drip;
 
-use OCALI\Drip\Interfaces\DripInterface;
+use wouterNL\Drip\Interfaces\DripInterface;
 use Exception;
 Class DripPhp implements DripInterface
 {
