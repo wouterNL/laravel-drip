@@ -6,7 +6,7 @@
 1) Add the package as a dependency in your composer.json
 
 ```
-composer require wouter42/laravel-drip
+composer require wouterNL/laravel-drip
 ```
 
 2) publish the vendor config file
