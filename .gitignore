@@ -1,3 +1,7 @@
-.DS_Store
-*/.DS_Store
 composer.lock
+
+# macOS
+.DS_Store
+
+# PHPStorm
+.idea

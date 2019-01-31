@@ -24,12 +24,13 @@ DRIP_API_TOKEN=your token here
 DRIP_ACCOUNT_ID=Your Account ID here
 ```
 
-5) Add the following line to your providers array in your config/app.php file
+### Laravel <= 5.4
+1) Add the following line to your providers array in your `config/app.php` file
 ```
 wouterNL\Drip\DripServiceProvider::class,
 ```
 
-6) Add the following line to your aliases array in your config/app.php file
+2) Add the following line to your aliases array in your `config/app.php` file
 ```
 'Drip' => wouterNL\Drip\Facades\DripFacade::class,
 ```

@@ -23,5 +23,15 @@
 		"psr-4": {
 			"wouterNL\\Drip\\": "src"
 		}
-	}
+	},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "wouterNL\\Drip\\DripServiceProvider"
+            ],
+            "aliases": {
+                "Drip": "wouterNL\\Drip\\Facades\\DripFacade"
+            }
+        }
+    }
 }
