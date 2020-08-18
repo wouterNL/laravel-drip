@@ -150,6 +150,40 @@ Class DripPhp implements DripInterface
     }
 
     /**
+     * Sends a request to delete a subscriber, either by email or id.
+     *
+     * @param $params
+     * @return array|bool
+     * @throws Exception
+     */
+    public  function deleteSubscriber($params) {
+        if (empty($params['account_id'])) {
+            $params['account_id'] = $this->account_id;
+        }
+
+        $idOrEmail = null;
+        if (isset($params['email'])) {
+            $idOrEmail = $params['email'];
+        } elseif(isset($params['id'])) {
+            $idOrEmail = $params['id'];
+        }
+
+        if(is_null($idOrEmail)) {
+            throw new Exception('Missing id or email');
+        }
+
+        $account_id = $params['account_id'];
+        unset($params['account_id']); // clear it from the params
+
+        $api_action = "/$account_id/subscribers/$idOrEmail";
+        $url = $this->api_end_point . $api_action;
+
+        $res = $this->makeRequest($url, [], self::DELETE);
+
+        return isset($res['http_code']) && $res['http_code'] == '204';
+    }
+
+    /**
     * Sends a request to add a subscriber and returns its record or false
     *
     * @param array $params
