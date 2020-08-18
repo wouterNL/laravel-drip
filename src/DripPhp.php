@@ -81,9 +81,9 @@ Class DripPhp implements DripInterface
         // when there's no json that's an error
         $campaigns = empty($raw_json)
         ? false
-        : empty($raw_json['campaigns'])
+        : (empty($raw_json['campaigns'])
         ? array()
-        : $raw_json['campaigns'];
+        : $raw_json['campaigns']);
 
         return $campaigns;
     }
@@ -119,9 +119,9 @@ Class DripPhp implements DripInterface
         // when there's no json that's an error
         $campaigns = empty($raw_json)
         ? false
-        : empty($raw_json['campaigns'])
+        : (empty($raw_json['campaigns'])
         ? array()
-        : $raw_json['campaigns'];
+        : $raw_json['campaigns']);
 
         return $campaigns;
     }
@@ -142,9 +142,9 @@ Class DripPhp implements DripInterface
 
         $data = empty($raw_json)
         ? false
-        : empty($raw_json['accounts'])
+        : (empty($raw_json['accounts'])
         ? array()
-        : $raw_json['accounts'];
+        : $raw_json['accounts']);
 
         return $data;
     }
@@ -210,9 +210,9 @@ Class DripPhp implements DripInterface
 
         $data = empty($raw_json)
         ? false
-        : empty($raw_json['subscribers'])
+        : (empty($raw_json['subscribers'])
         ? array()
-        : $raw_json['subscribers'][0];
+        : $raw_json['subscribers'][0]);
 
         return $data;
     }
@@ -253,9 +253,9 @@ Class DripPhp implements DripInterface
 
         $data = empty($raw_json)
         ? false
-        : empty($raw_json['subscribers'])
+        : (empty($raw_json['subscribers'])
         ? array()
-        : $raw_json['subscribers'][0];
+        : $raw_json['subscribers'][0]);
 
         return $data;
     }
@@ -303,9 +303,9 @@ Class DripPhp implements DripInterface
 
         $data = empty($raw_json)
         ? false
-        : empty($raw_json['subscribers'])
+        : (empty($raw_json['subscribers'])
         ? array()
-        : $raw_json['subscribers'][0];
+        : $raw_json['subscribers'][0]);
 
         return $data;
     }
@@ -349,9 +349,9 @@ Class DripPhp implements DripInterface
 
         $data = empty($raw_json)
         ? false
-        : empty($raw_json['subscribers'])
+        : (empty($raw_json['subscribers'])
         ? array()
-        : $raw_json['subscribers'][0];
+        : $raw_json['subscribers'][0]);
 
         return $data;
     }
