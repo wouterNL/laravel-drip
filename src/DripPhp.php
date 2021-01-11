@@ -218,6 +218,57 @@ Class DripPhp implements DripInterface
     }
 
     /**
+    * Create or update orders
+    *
+    * @param array $params
+    * @param array/bool $account
+    */
+    public function createOrUpdateOrders($params) {
+        if (empty($params['account_id'])) {
+            $params['account_id'] = $this->account_id;
+        }
+
+        $account_id = $params['account_id'];
+        unset($params['account_id']); // clear it from the params
+        
+        foreach ($params as $order) {
+            $idOrEmail = null;
+            if (isset($order['email'])) {
+                $idOrEmail = $order['email'];
+            } elseif (isset($order['id'])) {
+                $idOrEmail = $order['id'];
+            }
+
+            if (is_null($idOrEmail)) {
+                throw new Exception('Missing id or email');
+            }
+
+            if (empty($order['amount'])) {
+                throw new Exception("Amount not specified");
+            }
+        }
+
+        $api_action = "/$account_id/orders";
+        $url = $this->api_end_point . $api_action;
+
+        // The API wants the params to be JSON encoded
+        $req_params = array('orders' => $params);
+
+        $res = $this->makeRequest($url, $req_params, self::POST);
+        if (!empty($res['buffer'])) {
+            $raw_json = json_decode($res['buffer'], true);
+        }
+
+        $data = empty($raw_json)
+        ? false
+        : (empty($raw_json['orders'])
+        ? array()
+        : $raw_json['orders'][0]);
+
+        return $data;
+    }
+
+    /**
     *
     * @param array $params
     * @param array $params
